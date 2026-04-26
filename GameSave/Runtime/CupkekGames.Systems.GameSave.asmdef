@@ -1,0 +1,16 @@
+{
+	"name": "CupkekGames.Systems.GameSave",
+	"rootNamespace": "",
+	"references": [
+		"GUID:a57eb40d9a9e0984a816dda1fdae8adf"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": true,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

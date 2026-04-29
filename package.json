@@ -1,7 +1,7 @@
 ﻿{
   "name": "com.cupkekgames.gamesave",
   "displayName": "CupkekGames GameSave",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "CupkekGames",
     "url": "https://www.docs.cupkek.games"
@@ -17,6 +17,6 @@
     "CupkekGames"
   ],
   "dependencies": {
-    "com.cupkekgames.data": "0.1.0"
+    "com.cupkekgames.data": "0.1.3"
   }
 }

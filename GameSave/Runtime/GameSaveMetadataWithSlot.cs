@@ -1,4 +1,4 @@
-namespace CupkekGames.Systems
+namespace CupkekGames.GameSave
 {
     public struct GameSaveMetadataWithSlot<TSaveMetadata> where TSaveMetadata : GameSaveMetadata
     {

@@ -1,5 +1,5 @@
 {
-	"name": "CupkekGames.Systems.GameSave",
+	"name": "CupkekGames.GameSave",
 	"rootNamespace": "",
 	"references": [
 		"GUID:a57eb40d9a9e0984a816dda1fdae8adf"

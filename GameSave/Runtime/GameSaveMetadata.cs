@@ -1,6 +1,6 @@
 using System;
 
-namespace CupkekGames.Systems
+namespace CupkekGames.GameSave
 {
   [Serializable]
   public class GameSaveMetadata

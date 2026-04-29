@@ -1,4 +1,4 @@
-namespace CupkekGames.Systems
+namespace CupkekGames.GameSave
 {
   public interface IGameSaveData
   {

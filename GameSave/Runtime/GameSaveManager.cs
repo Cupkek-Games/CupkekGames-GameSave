@@ -5,7 +5,7 @@ using CupkekGames.Data;
 using UnityEngine;
 using System.Linq;
 
-namespace CupkekGames.Systems
+namespace CupkekGames.GameSave
 {
   public abstract class GameSaveManager<TSaveData, TSaveMetadata> : ScriptableObject where TSaveData : IGameSaveData, IData, new() where TSaveMetadata : GameSaveMetadata
   {

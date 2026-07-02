@@ -14,6 +14,63 @@ namespace CupkekGames.GameSave
     [SerializeField] protected int _autosaveSlots = 5;
     public GameSaveDataSO<TSaveData> CurrentSave;
 
+    [NonSerialized] private int _sessionSavePlaySessionId = -1;
+
+    /// <summary>
+    /// True when a save has been explicitly chosen this play session via <see cref="SetSessionSave"/>
+    /// (New Game / Continue / Load / an auto-load guard). Do not use <c>CurrentSave.Data != null</c> for
+    /// this — <c>DataSO</c> seeds a non-null template clone every play session, so data presence cannot
+    /// distinguish "the player picked a save" from "the default template".
+    /// </summary>
+    public bool HasSessionSave =>
+      _sessionSavePlaySessionId == GameSavePlaySession.Id && CurrentSave != null && CurrentSave.Data != null;
+
+    /// <summary>Assigns <see cref="CurrentSave"/>.Data and marks the save as chosen for this play session.</summary>
+    public void SetSessionSave(TSaveData data)
+    {
+      if (CurrentSave == null)
+      {
+        Debug.LogError("CurrentSave is not assigned on the save manager.", this);
+        return;
+      }
+
+      CurrentSave.Data = data;
+      _sessionSavePlaySessionId = GameSavePlaySession.Id;
+    }
+
+    /// <summary>
+    /// Loads the newest save on disk (by <see cref="GameSaveMetadata.SaveDate"/>) into the session.
+    /// Returns false when no save exists or the newest one fails to load.
+    /// </summary>
+    public bool TryLoadNewestIntoSession()
+    {
+      GameSaveMetadataWithSlot<TSaveMetadata> last = GetLastMetadata();
+      if (last.Metadata == null)
+      {
+        return false;
+      }
+
+      try
+      {
+        SetSessionSave(GetSave(last.SaveSlot));
+        Debug.Log($"Loaded newest save into session (slot {last.SaveSlot}, saved {last.Metadata.SaveDate}).", this);
+        return true;
+      }
+      catch (Exception e)
+      {
+        Debug.LogException(e, this);
+        return false;
+      }
+    }
+
+    /// <summary>Seeds a brand-new save into the session — the same path as a menu's New Game.</summary>
+    public TSaveData StartNewSession()
+    {
+      TSaveData data = GetNewSave(GetSaveVersion());
+      SetSessionSave(data);
+      return data;
+    }
+
     public void Autosave(TSaveData data)
     {
       if (!_enableAutosave)

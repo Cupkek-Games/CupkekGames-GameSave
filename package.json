@@ -17,6 +17,6 @@
     "CupkekGames"
   ],
   "dependencies": {
-    "com.cupkekgames.data": "0.1.4"
+    "com.cupkekgames.data": "0.3.0"
   }
 }

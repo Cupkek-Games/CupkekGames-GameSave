@@ -256,13 +256,13 @@ namespace CupkekGames.GameSave
 
     public string GetSaveFileName(int slot)
     {
-      return "save" + slot.ToString() + "." + GetFileExtenstion();
+      return "save" + slot.ToString() + "." + GetFileExtension();
     }
 
     public int ExtractSaveSlot(string saveString)
     {
       // Regular expression pattern for "save" followed by digits
-      string formatPattern = Regex.Escape(GetFileExtenstion());
+      string formatPattern = Regex.Escape(GetFileExtension());
       Regex regex = new Regex(@"^save(\d+)\." + formatPattern + "$");
       Match match = regex.Match(saveString);
 
@@ -312,7 +312,7 @@ namespace CupkekGames.GameSave
       return slot;
     }
 
-    protected abstract string GetFileExtenstion();
+    protected abstract string GetFileExtension();
     protected abstract TSaveData GetNewSave(string saveVersion);
     protected abstract TSaveData LoadFromFile(string fileName);
     protected abstract TSaveMetadata LoadMetadataFromFile(string fileName);

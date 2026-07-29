@@ -48,7 +48,7 @@ namespace CupkekGames.GameSave
       _sessionSavePlaySessionId = -1;
       if (CurrentSave != null)
       {
-        CurrentSave.Data = null;
+        CurrentSave.Data = default;
       }
     }
 

@@ -39,6 +39,20 @@ namespace CupkekGames.GameSave
     }
 
     /// <summary>
+    /// Forgets the session's save choice (<see cref="HasSessionSave"/> goes false) and clears
+    /// <see cref="CurrentSave"/>.Data. The inverse of <see cref="SetSessionSave"/> — for
+    /// quit-to-menu flows and test harnesses that reset the session between boots.
+    /// </summary>
+    public void ClearSessionSave()
+    {
+      _sessionSavePlaySessionId = -1;
+      if (CurrentSave != null)
+      {
+        CurrentSave.Data = null;
+      }
+    }
+
+    /// <summary>
     /// Loads the newest save on disk (by <see cref="GameSaveMetadata.SaveDate"/>) into the session.
     /// Returns false when no save exists or the newest one fails to load.
     /// </summary>

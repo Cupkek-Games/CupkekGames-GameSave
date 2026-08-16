@@ -6,7 +6,7 @@
     "name": "CupkekGames",
     "url": "https://www.docs.cupkek.games"
   },
-  "unity": "6000.0",
+  "unity": "6000.5",
   "documentationUrl": "https://docs.cupkek.games/",
   "description": "Generic save-manager pattern built on CupkekGames Data: GameSaveManager<TData,TMeta>, IGameSaveData, GameSaveDataSO, GameSaveMetadata, slot-based metadata, and lifecycle events. Serialization-agnostic — pair with com.cupkekgames.newtonsoft (or your own IDataSerializer) to persist saves.",
   "keywords": [
